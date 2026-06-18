@@ -1,0 +1,474 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+:root {
+  --bg-main: #0a0a0a;
+  --bg-surface: #1c1c1c;
+  --bg-surface-hover: #262626;
+  --gold: #d4af37;
+  --gold-dim: #9c7f2c;
+  --grey: #8a8a8a;
+  --grey-light: #b8b8b8;
+  --text-main: #f5f5f0;
+  --danger: #b33a3a;
+  --success: #4a8f5c;
+
+  --font-body: "Inter", Arial, sans-serif;
+
+  --radius: 6px;
+  --max-width: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--gold);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-main);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ============ HEADER ============ */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.25rem 2rem;
+  background-color: var(--bg-surface);
+  border-bottom: 1px solid var(--gold-dim);
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.logo .highlight {
+  color: var(--gold);
+}
+
+nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--grey-light);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+/* ============ MAIN LAYOUT ============ */
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* ============ HERO ============ */
+.hero {
+  text-align: center;
+  padding: 3.5rem 1rem 2.5rem;
+  border-bottom: 1px solid #2a2a2a;
+  margin-bottom: 2rem;
+}
+
+.hero h1 {
+  font-size: 2.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, var(--text-main) 40%, var(--gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  color: var(--grey-light);
+  font-size: 1.05rem;
+}
+
+/* ============ FILTERS ============ */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  background-color: var(--bg-surface);
+  border: 1px solid #2a2a2a;
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.filters select,
+.filters input {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  border: 1px solid #333;
+  border-radius: var(--radius);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9rem;
+}
+
+.filters select:focus,
+.filters input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.filters label {
+  color: var(--grey-light);
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+#apply-filters {
+  background-color: var(--gold);
+  color: var(--bg-main);
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.55rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+#apply-filters:hover {
+  background-color: #e3c158;
+}
+
+/* ============ GAME LIST ============ */
+.game-list h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--text-main);
+}
+
+.games {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  list-style: none;
+}
+
+.game-card {
+  background-color: var(--bg-surface);
+  border: 1px solid #2a2a2a;
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.game-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.15);
+}
+
+.game-card img {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+}
+
+.game-card .card__name {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.85rem 0.9rem 0.3rem;
+  color: var(--text-main);
+}
+
+.game-card .card__rating {
+  font-size: 0.85rem;
+  color: var(--grey-light);
+  padding: 0 0.9rem 0.9rem;
+}
+
+/* ============ GAME DETAIL ============ */
+.game-detail {
+  background-color: var(--bg-surface);
+  border: 1px solid #2a2a2a;
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.game-detail h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.game-detail img {
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+  max-height: 360px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.game-detail p {
+  color: var(--grey-light);
+  margin-bottom: 0.6rem;
+}
+
+#wishlist-btn {
+  background-color: transparent;
+  color: var(--gold);
+  border: 1px solid var(--gold-dim);
+  border-radius: var(--radius);
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  margin-top: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#wishlist-btn:hover {
+  background-color: var(--gold);
+  color: var(--bg-main);
+}
+
+/* ============ PRICE COMPARISON ============ */
+.price-comparison h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.price-comparison label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--grey-light);
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.price-comparison input {
+  background-color: var(--bg-surface);
+  color: var(--text-main);
+  border: 1px solid #333;
+  border-radius: var(--radius);
+  padding: 0.4rem 0.6rem;
+  width: 100px;
+}
+
+#deals-list {
+  list-style: none;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.deal-card {
+  background-color: var(--bg-surface);
+  border: 1px solid #2a2a2a;
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  display: grid;
+  grid-template-columns: 1fr auto auto auto;
+  gap: 0.75rem 1.25rem;
+  align-items: center;
+}
+
+.deal-card p {
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.deal-card p:nth-child(2) {
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.deal-card p:nth-child(3) {
+  text-decoration: line-through;
+  color: #666;
+}
+
+.deal-card p:nth-child(4) {
+  color: var(--success);
+  font-weight: 600;
+}
+
+.deal-card a,
+.add-to-cart-btn {
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.deal-card a {
+  background-color: transparent;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+}
+
+.deal-card a:hover {
+  background-color: var(--gold);
+  color: var(--bg-main);
+}
+
+.add-to-cart-btn {
+  background-color: var(--gold);
+  color: var(--bg-main);
+  border: none;
+}
+
+.add-to-cart-btn:hover {
+  background-color: #e3c158;
+}
+
+/* ============ CART & WISHLIST ============ */
+.cart-page h1,
+.wishlist-page h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin-bottom: 1.5rem;
+}
+
+.cart-list,
+.wishlist-list {
+  list-style: none;
+  display: grid;
+  gap: 1rem;
+}
+
+.cart-card,
+.wishlist-card {
+  background-color: var(--bg-surface);
+  border: 1px solid #2a2a2a;
+  border-radius: var(--radius);
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 80px 1fr auto auto;
+  gap: 1rem;
+  align-items: center;
+}
+
+.cart-card img,
+.wishlist-card img {
+  width: 80px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.cart-card h2,
+.wishlist-card h2 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.remove-btn {
+  background-color: transparent;
+  color: var(--danger);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.remove-btn:hover {
+  background-color: var(--danger);
+  color: var(--text-main);
+}
+
+.cart-footer {
+  margin-top: 1.5rem;
+  padding: 1.25rem;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--gold-dim);
+  border-radius: var(--radius);
+  text-align: right;
+}
+
+.cart-footer.hide {
+  display: none;
+}
+
+.cart-total {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--gold);
+}
+
+/* ============ FOOTER ============ */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--grey);
+  font-size: 0.85rem;
+  border-top: 1px solid #2a2a2a;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 640px) {
+  header {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .deal-card,
+  .cart-card,
+  .wishlist-card {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+}
+
+/* ============ ACCESSIBILITY ============ */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+}
