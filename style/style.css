@@ -472,3 +472,20 @@ footer {
     animation: none !important;
   }
 }
+
+.search-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 1rem;
+}
+
+.search-container input {
+  flex: 1;
+  padding: .7rem;
+  border-radius: 8px;
+}
+
+.search-container button {
+  padding: .7rem 1rem;
+  cursor: pointer;
+}
