@@ -1,6 +1,4 @@
-console.log(import.meta.env);
 const rawgKey = import.meta.env.VITE_RAWG_API_KEY;
-console.log("RAWG KEY:", rawgKey);
 const rawgBaseURL = "https://api.rawg.io/api";
 const cheapSharkBaseURL = "https://www.cheapshark.com/api/1.0";
 
